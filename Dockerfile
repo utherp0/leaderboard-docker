@@ -1,4 +1,4 @@
-FROM node:argon
+FROM docker.io/node
 
 USER root
 
