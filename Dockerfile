@@ -1,6 +1,12 @@
-FROM docker.io/node
+FROM registry.access.redhat.com/rhel7.2
 
 USER root
+
+RUN subscription-manager repos --enable rhel-server-rhscl-7-rpms
+RUN subscription-manager repos --enable rhel-7-server-optional-rpms
+
+RUN yum install -y rh-nodejs4
+RUN scl enable rh-nodejs4 bash
 
 # Create app directorys
 RUN mkdir -p /usr/src/app
